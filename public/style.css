@@ -1,0 +1,8 @@
+.complete {
+  text-decoration: line-through;
+}
+
+.todoItem {
+  list-style: none;
+  font-size: 1.6rem;
+}

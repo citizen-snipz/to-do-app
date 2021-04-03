@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <script
+      src="https://kit.fontawesome.com/935416031f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>To Do List</h1>
+      <ul class="todoList">
+        <% for (let i = 0; i < info.length; i++) {%>
+
+        <li class="todoItem">
+          <span class=<%= info[i].completed && 'complete' %>><%= info[i].todo %></span>
+          <span class="fas fa-dumpster"></span>
+          <span class="completedTick">Mark as done</span>
+        </li>
+        <% } %>
+      </ul>
+    </main>
+    <form action="/addTodo" method="post">
+      <input type="text" placeholder="Task" name="todoInput" />
+      <input type="submit" value="" />
+    </form>
+    <script src="/main.js"></script>
+  </body>
+</html>
