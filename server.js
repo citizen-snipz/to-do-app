@@ -15,6 +15,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
   }
 );
 app.set("view engine", "ejs");
+
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,13 +25,10 @@ app.get("/", (request, response) => {
     .collection("todos")
     .find()
     .toArray()
-    .then((data) => {
-      response.render("index.ejs", { info: data });
+    .then((info) => {
+      response.render("index.ejs", { info });
     })
     .catch((err) => console.error(err));
-  //   const itemsLeft = await db
-  //     .collection("todos")
-  //     .countDocuments({ completed: false });
 });
 
 app.post("/addTodo", (req, res) => {
@@ -57,18 +55,17 @@ app.delete("/deleteTask", (req, res) => {
 });
 
 app.put("/markAsDone", (req, res) => {
-  console.log(req.body);
+  console.log(req.body.todo);
   db.collection("todos")
 
     .updateOne(
       { todo: req.body.todo },
       {
-        $set: { completed: true }
+        $set: { completed: req.body.completed }
       }
     )
     .then((result) => {
-      console.log(result);
-      res.json("taskDeleted");
+      res.json("taskUpdated");
     })
     .catch((err) => console.error(err));
 });
