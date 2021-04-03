@@ -1,9 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Yatra+One&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(123, 224, 217, 0.6);
+}
+
+h1 {
+  font-family: "Yatra One", cursive;
+  font-size: 3.2rem;
+  text-align: center;
+  color: rgb(2, 128, 144);
+  text-shadow: 2px 1px 3px rgb(200, 243, 200);
+  text-decoration: underline;
+}
+
+ul {
+  border: 3px solid rgb(13, 106, 112);
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  width: 50%;
+  padding: 1rem;
+}
+
 .complete {
   text-decoration: line-through;
   color: gray;
 }
 
-.todoItem {
+li.todoItem {
+  width: 100%;
   list-style: none;
   font-size: 1.6rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.2rem 0.7rem;
+  font-family: "Architects Daughter", cursive;
+}
+
+li.todoItem:nth-child(odd) {
+  background-color: rgb(73, 202, 159);
+  color: aliceblue;
+  text-shadow: 1px 1px 1px rgba(4, 56, 4);
+}
+
+li.todoItem:nth-child(even) {
+  background-color: rgb(201, 247, 232);
+  color: rgba(4, 151, 170, 0.7);
+  text-shadow: 1px 1px 1px rgba(2, 38, 58, 1);
+}
+
+span {
+  padding: 0.8rem;
+}
+form {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+input.button {
+  background-color: rgb(2, 128, 144);
+  color: rgb(201, 247, 232);
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+input.search {
+  height: 2.5rem;
+  border-radius: 5px;
+  width: 25%;
+}
+
+.far {
+  padding-left: 3rem;
+}
+
+input[type="checkbox"] {
+  color: green;
 }

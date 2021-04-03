@@ -14,6 +14,10 @@
   <body>
     <main class="container">
       <h1>To Do List</h1>
+      <form action="/addTodo" method="post">
+        <input class="search" type="text" placeholder="Task" name="todoInput" />
+        <input class="button" type="submit" value="Add Task" />
+      </form>
       <ul class="todoList">
         <% for (let i = 0; i < info.length; i++) { %>
 
@@ -27,10 +31,7 @@
         <% } %>
       </ul>
     </main>
-    <form action="/addTodo" method="post">
-      <input type="text" placeholder="Task" name="todoInput" />
-      <input type="submit" value="Add Task" />
-    </form>
+    
     <script src="/main.js"></script>
   </body>
 </html>
