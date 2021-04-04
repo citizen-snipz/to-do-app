@@ -34,30 +34,25 @@ app.get("/", (request, response) => {
 });
 
 app.post("/addTodo", (req, res) => {
-  console.log(req.body);
   db.collection("todos")
     .insertOne({ todo: req.body.todoInput })
     .then((result) => {
-      console.log(result);
       res.redirect("/");
     })
     .catch((err) => console.error(err));
 });
 
 app.delete("/deleteTask", (req, res) => {
-  console.log(req.body);
   db.collection("todos")
 
     .deleteOne({ todo: req.body.todo })
     .then((result) => {
-      console.log(result);
       res.json("taskDeleted");
     })
     .catch((err) => console.error(err));
 });
 
 app.put("/markAsDone", (req, res) => {
-  console.log(req.body.todo);
   db.collection("todos")
 
     .updateOne(
